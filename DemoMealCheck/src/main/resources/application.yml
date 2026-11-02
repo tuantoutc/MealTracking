@@ -1,0 +1,61 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: DemoMealCheck
+  datasource:
+    url: jdbc:postgresql://localhost:5432/meal_tracking
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    show-sql: false
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.xml
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:google-client-id-placeholder}
+            client-secret: ${GOOGLE_CLIENT_SECRET:google-client-secret-placeholder}
+            scope:
+              - email
+              - profile
+  main:
+    allow-circular-references: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: tuan13062xxx@gmail.com           # Email của bạn
+    password: qagx ydmw vshb nqtc # Mật khẩu ứng dụng Google (16 ký tự)
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+jwt:
+  secret: "9e9869aac568543a7e7a27795415aa99d5752b49c5dbd23ab949f473d8c34e8b389472e0123"
+  # 5 days = 432000000 ms
+  access-token-expiration: 432000000
+  # 7 days = 604800000 ms
+  refresh-token-expiration: 604800000
+
+app:
+  cors:
+    allowed-origins:
+      - "http://localhost:3000"
+      - "http://127.0.0.1:3000"
+  oauth2:
+    authorized-redirect-uris:
+      - "http://localhost:3000/oauth2/redirect"

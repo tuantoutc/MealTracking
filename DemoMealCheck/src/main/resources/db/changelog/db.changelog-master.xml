@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Sử dụng 100% Liquibase Formatted SQL thuần túy, trực quan, dễ quản lý và theo dõi -->
+    <include file="db/changelog/changes/001-initial-schema.sql"/>
+    <include file="db/changelog/changes/002-insert-initial-roles.sql"/>
+    <include file="db/changelog/changes/003-update-meal-dish-type-and-unit.sql"/>
+    <include file="db/changelog/changes/004-add-custom-dish-type.sql"/>
+    <include file="db/changelog/changes/005-phase1-school-monitoring.sql"/>
+    <include file="db/changelog/changes/006-admin-account-management.sql"/>
+    <include file="db/changelog/changes/007-supplier-partners-and-clients.sql"/>
+
+</databaseChangeLog>
